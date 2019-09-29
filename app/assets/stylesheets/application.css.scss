@@ -1,0 +1,277 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= link_directory ../angular-application .css
+ *
+ *= require flatpickr
+ *
+ *= require toastr/min
+ *
+ *= require dist/assets/owl.carousel.min
+ *
+ * require_tree .
+ *= require_self
+ */
+
+@import "semantic-ui";
+@import url('https://fonts.googleapis.com/css?family=Mali:400,400i,500,500i,600,600i,700,700i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&display=swap');
+
+
+html, body {
+    background: none !important;
+    width: 100% !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    font-family: 'Ubuntu', sans-serif !important;
+}
+
+.custom-body-fullscreen-fixed {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    position: fixed;
+    overflow: auto;
+    background: #f4f6fb !important;
+}
+
+*:not(i.icon) {
+    font-family: 'Ubuntu', 'Lato', Arial, Helvetica, sans-serif sans-serif !important;
+}
+
+
+/*
+custom grids
+*/
+
+.custom-width-percent-100 {
+    width: 100% !important;
+}
+
+
+
+/*
+custom aligns
+*/
+
+.custom-center { display: table !important; margin: 0 auto !important; }
+.custom-center-block { display: block !important; margin: 0 auto !important; }
+
+.custom-center-absolute-x { position: absolute !important; left: 50% !important; transform: translate(-50%) !important; }
+.custom-center-absolute-y { position: absolute !important; top: 50% !important; transform: translate(0, -50%) !important; }
+.custom-center-absolute-xy { left: 50%; top: 50%; position: absolute; transform: translate(-50%, -50%); }
+
+
+
+
+
+/*
+custom texts
+*/
+
+.custom-font-mali, .custom-font-mali * {
+    font-family: 'Mali', cursive !important;   
+}
+
+.custom-font-ubuntu {
+    font-family: 'Ubuntu', sans-serif !important;
+}
+.custom-font-pt-sans {
+    font-family: 'Pt Sans', sans-serif !important;
+}
+.custom-font-roboto {
+    font-family: 'roboto', sans-serif !important;
+}
+.custom-font-source {
+    font-family: 'Source Sans Pro', sans-serif !important;
+}
+
+.custom-text-center {
+    text-align: center !important;
+}
+
+.custom-text-bold-900 {
+    font-weight: 900;
+}
+
+
+
+
+/*
+custom toastr
+*/
+
+.toast-message {
+    font-weight: 800 !important;
+}
+
+.toast {
+    margin-top: 20px !important;
+    opacity: 1 !important;
+}
+
+#toast-container .toast {
+    border-radius: 7px;
+    box-shadow: none;
+    padding-left: 20px !important;
+    opacity: 0.9 !important;
+}
+
+#toast-container .icon.big { position: relative; top: -2px; }
+.custom-toast-green { background: #4B995D !important; }
+.custom-toast-red { background: #B43832 !important; }
+.custom-toast-blue { background: #4566a4 !important; }
+.custom-toast-orange { background: #f2711c !important; }
+
+
+
+/*
+custom menu horizontal
+*/
+
+.custom-menu-global-top {
+    background: #303f9f !important;
+    /*background: #652f81 !important;*/
+}
+.custom-menu-global-top-title {
+    border: none !important;
+    font-weight: 800 !important;
+    letter-spacing: 1px;
+    font-family: 'Mali', cursive !important;
+    font-size: 150%;
+}
+
+.custom-menu-global-sidebar {
+    background: #4265ae !important;
+    font-size: 120%;
+    display: none;
+}
+.custom-menu-global-sidebar-header { 
+    font-weight: 800 !important;
+    letter-spacing: 1px;
+    color: #ccc !important;
+    font-size: 70%;
+    font-family: 'PT Sans', sans-serif !important;
+    padding-left: 18px;
+    opacity: 0.5;
+}
+.custom-menu-global-sidebar .item {
+    font-weight: 800 !important;
+}
+
+
+
+/*
+custom bg
+*/
+
+.custom-blur {
+    /* Add the blur effect */
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+}
+
+.custom-bg-white {
+    background: white !Important;
+}
+
+.custom-bg-liv-blue { background: #4366A8 !important; }
+.custom-bg-gradient-1 { background: linear-gradient(to right, rgb(229, 93, 135), rgb(95, 195, 228)) !important; }
+.custom-bg-gradient-2 { background: linear-gradient(to right, rgb(52, 143, 80), rgb(86, 180, 211)) !important; }
+.custom-bg-gradient-3 { background: linear-gradient(to right, rgb(204, 149, 192), rgb(219, 212, 180), rgb(122, 161, 210)) !important; }
+.custom-bg-gradient-4 { background: linear-gradient(to right, rgb(26, 41, 128), rgb(38, 208, 206)) !important; }
+.custom-bg-gradient-5 { background: linear-gradient(to right, rgb(31, 162, 255), rgb(18, 216, 250), rgb(166, 255, 203)) !important; }
+.custom-bg-gradient-6 { background: linear-gradient(limegreen, transparent), linear-gradient(90deg, skyblue, transparent), linear-gradient(-90deg, coral, transparent) !important; background-blend-mode: screen; }
+.custom-bg-gradient-7 { background: linear-gradient(90deg, #3a589e, transparent), linear-gradient(limegreen, transparent), linear-gradient(-90deg, coral, transparent) !important; background-blend-mode: screen; }
+.custom-bg-gradient-8 { 
+    /*background: linear-gradient(to right, rgb(210, 57, 40), rgb(252, 205, 14), rgb(65, 103, 166)) !important;*/ 
+    background: linear-gradient(to right, rgb(51, 67, 145), rgb(57, 153, 227)) !important; 
+}
+
+
+
+
+/*
+custom segments
+*/
+
+.custom-segment {
+    background-color: white !important;
+    border-radius: 9px;
+}
+.custom-segment-pad {
+    padding: 50px 55px !important;
+}
+
+
+
+
+/*
+custom owl nav
+*/
+
+.owl-nav {
+    display: table;
+    margin: 0px auto;
+    margin-top: 10px;
+}
+
+
+
+
+/*
+custom shadows
+*/
+
+.custom-shadow {
+    /*box-shadow: 0 0 2rem 0 rgba(136,152,170,.15) !important;*/
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05) !important;
+    /*box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1);*/
+}
+
+.custom-shadow-input {
+    box-shadow: 0 3px 9px rgba(50,50,9,0), 3px 4px 8px rgba(94,114,228,.1) !important;
+}
+.custom-shadow-button{
+    box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08) !important;
+}
+.custom-shadow-segment {
+    box-shadow: 0 0 40px 0 rgba(0,0,0,.15) !important;
+}
+
+
+/*
+custom basic
+*/
+
+.custom-pointer {
+    cursor: pointer;
+}
+
+.custom-no-white-spaces {
+    white-space: nowrap;
+}
+
+
+/*
+custom forms
+*/
+
+.custom-input-error {
+    display: table !important;
+    margin: 0px auto !important;
+    margin-top: 7px !important;
+}

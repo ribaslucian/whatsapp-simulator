@@ -1,0 +1,110 @@
+<div class="ui sidebar inverted vertical menu big custom-menu-global-sidebar">
+
+    <br/>
+    <br/>
+
+<%#= image_tag('query_code_example.png', style: 'width: 70%; display: table; margin: 0px auto; border-radius: 8px; cursor: pointer') %>
+<%#= image_tag(@query.to_s, style: 'width: 70%; display: table; margin: 0px auto; border-radius: 8px; cursor: pointer') %>
+
+    <div style="border-radius: 8px; padding: 10px; background: white; display: table !important; margin: 0px auto !important;">
+        <div class="entity-qrcode" text="<%= session[:entity]['id'] %>" style="border-radius: 8px; padding: 10px; margin: 0px auto;">&nbsp;</div>
+    </div>
+
+    <div class="custom-menu-global-sidebar-header custom-font-ubuntu"
+         style="text-align: center; margin-top: 5px; padding: 0 30px; font-size: 12px;">
+        Faça transferências com seu QR-code
+<%#*&lt;clique para ampliar&gt;%>
+    </div>
+
+    <br/>
+
+    <div class="custom-menu-global-sidebar-header">
+        GERAL
+    </div>
+
+    <a href="/dashboard" class="item custom-font-pt-sans">
+        <i class="home icon"></i>
+        Início
+    </a>
+
+    <a href="/extract" class="item custom-font-pt-sans">
+        <i class="exchange icon"></i>
+        Extrato
+    </a>
+
+    <% if @isStore %>
+      <a href="/pos" class="item custom-font-pt-sans">
+          <i class="cloud upload icon"></i>
+          POS Online
+      </a>
+    <% end %>
+
+
+    <br/>
+
+    <div class="custom-menu-global-sidebar-header">
+        USUÁRIO
+    </div>
+
+    <a href="/profile" class="item custom-font-pt-sans">
+        <i class="user icon"></i>
+        Meus Dados
+    </a>
+
+<%#*<a class="item custom-font-pt-sans">%>
+<%#*<i class="chart line icon"></i>%>
+<%#*Estatística%>
+<%#*</a>%>
+
+    <a href="/logout" class="item custom-font-pt-sans">
+        <i class="sign-out icon"></i>
+        Sair
+    </a>
+
+
+    <br/>
+
+<%#*<div class="custom-menu-global-sidebar-header">%>
+<%#*CONTRATANTE%>
+<%#*</div>%>
+
+<%#*<a class="item custom-font-pt-sans">%>
+<%#*<i class="users icon"></i>%>
+<%#*Funcionários%>
+<%#*</a>%>
+
+<%#*<a class="item custom-font-pt-sans">%>
+<%#*<i class="bolt icon"></i>%>
+<%#*Recargas e Transferências%>
+<%#*</a>%>
+
+
+
+
+<%#*<div class="custom-menu-global-sidebar-header">%>
+<%#*PROTOCOLOS%>
+<%#*</div>%>
+
+    <br/>
+
+    <%= link_to online_help_path,  class: "item custom-font-pt-sans" do %>
+        <i class="question icon"></i>
+        Me ajuda
+      <% end %>
+
+  <%#*<a class="item custom-font-pt-sans">%>
+  <%#*<i class="card credit icon"></i>%>
+  <%#*Solicitar segunda via%>
+  <%#*</a>%>
+
+  <%#*<a class="item custom-font-pt-sans">%>
+  <%#*Mais Protocolos...%>
+  <%#*<i class="arrow right icon"></i>%>
+  <%#*</a>%>
+
+      <br/>
+      <br/>
+
+      <br/>
+      <br/>
+  </div>

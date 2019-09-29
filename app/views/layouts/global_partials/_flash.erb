@@ -1,0 +1,11 @@
+<% if flash[:green] %>
+  <div ng-init="flash.green('<%= flash[:green] %>')"></div>
+<% elsif flash[:blue] %>
+  <div ng-init="flash.blue('<%= flash[:blue] %>')"></div>
+<% elsif flash[:orange] %>
+  <div ng-init="flash.orange('<%= flash[:orange] %>')"></div>
+<% elsif flash[:red] %>
+  <div ng-init="flash.red('<%= flash[:red] %>')"></div>
+<% end %>
+  
+<% flash[:green] = flash[:blue] = flash[:orange] = flash[:red] = nil %>

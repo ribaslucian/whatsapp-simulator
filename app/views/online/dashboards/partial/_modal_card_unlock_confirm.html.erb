@@ -1,0 +1,36 @@
+<div id="modal_card_lock_confirm" class="ui basic modal">
+    <div class="ui icon header">
+        <i class="unlock icon"></i>
+        <br/>
+        Desbloquear Cartão
+        <br/>
+        **** **** **** <%= @card.code[-4, 4] %>
+    </div>
+
+    <div class="content" style="text-align: center;">
+        <p>
+            Ao desbloquear o cartão será possível efetuar vendas e transações.
+            <br/><br/>
+
+            <b>
+                Tem certeza que deseja Desbloquear ?
+            </b>
+        </p>
+    </div>
+
+    <div class="actions">
+        <div class="custom-center">
+            <div class="ui red basic cancel inverted button large">
+                <i class="remove icon"></i>
+                Não
+            </div>
+
+            &nbsp;
+
+            <%= link_to online_unblock_card_path(id: @card.id), class: 'ui green ok inverted button large' do %>
+                <i class="unlock icon"></i>
+                Desbloquear
+            <% end %>
+        </div>
+    </div>
+</div>

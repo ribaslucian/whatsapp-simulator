@@ -1,0 +1,313 @@
+<style>
+    .ui.form input, .ui.form select {
+        background: #e5e5e5 !important;
+        font-weight: 900;
+        border: none !important;
+
+        height: 62px !important;
+        font-size: 16px !important;
+    }
+
+    .form input:focus, .form select:focus {
+        outline: 2px solid #4366A8 !important;
+    }
+
+    ::-webkit-input-placeholder, ::placeholder {
+        color: #8e8e9f !important;
+    }
+</style>
+
+<br/><br/>
+<br/><br/>
+
+<!--
+entity
+card
+-->
+
+<div class="ui container" ng-controller="POSController">
+    <div class="ui grid two column centered stackable">
+        <div class="column">
+            <div class="ui basic segment very padded bottom attached custom-bg-white custom-shadow-segment" style="border-radius: 8px; border: 0px !important;">
+
+                <i class="huge icons custom-center">
+                    <i class="cloud upload blue icon circular inverted"></i>
+                    <i class="cart plus bottom right corner icon circular inverted"
+                       style="font-size: 40%; right: -15px;"></i>
+                </i>
+
+                <div class="ui header center aligned huge dividing" style="font-weight: 800 !important;">
+                    POS Online
+                    <div class="sub header">
+                        Para vender ou consultar preencha os campos abaixo:
+                    </div>
+                    <br/>
+                </div>
+
+                <br/>
+
+                <div class="ui form large">
+                    <%= form_for(@pos_sell, url: '/pos/card/validate', method: 'post') do |f1| %>
+                      <div class="field teen wide">
+                          <div class="ui action large left icon input">
+                              <i class="credit card icon"></i>
+
+                              <%= f1.text_field :card_code,
+                                placeholder: 'Número do cartão do cliente',
+                                style: 'padding-left: 50px !important;',
+                                mask: '9999 9999 9999 9999',
+                                'ng-model': 'form.card_code',
+                                'ng-value': @pos_sell.card_code ? @pos_sell.card_code.to_str : '',
+                                'ng-pattern': '/^([0-9]{4}) ([0-9]{4}) ([0-9]{4}) ([0-9]{4})$/'
+                            %>
+
+                              <button 
+                                  class="ui large green button"
+                                  ng-disabled="!form.card_code">
+                                  Validar
+                              </button>
+                          </div>
+                      </div>
+                    <% end %>
+
+
+
+
+
+                    <% if @pos_sell.sold %>
+
+                      <br/><br/>
+
+                      <div class="ui divider fitted"></div>
+
+                      <div class="ui segment basic very padded custom-pointer" style="font-size: 80% !important; background: white !important; border-radius: 8px; text-align: center !important;"  onclick="$('#pos-card-data').modal('show');">
+
+                          <div style="font-size: 150%;">
+                              <div style="font-size: 150%; font-weight: 400; color: purple;">
+                                  Transação de 
+                                  <b>
+                                    <%= number_to_currency(@transfer.value, unit: '', separator: ',', delimiter: '.') %>
+                                  </b>
+                                  efetuada!
+                              </div>
+
+                              <br/>
+                              <br/>
+
+                              <div style="font-weight: 400;">
+                                Para: <%= @sold_card.entity.name %>
+                              </div>
+                          </div>
+
+                          <br/>
+                          <br/>
+
+
+                          <div ng-show="!$basic.isMobile()" ng-click="proof_download('/extract/proof.pdf?id=<%= @transfer.id %>')" class="item" style="color: grey; font-size: 125%; color: #4366A8">
+                              <i class="icon download "></i>
+                              Baixar Comprovante PDF
+                          </div>
+                          
+                          <a ng-show="$basic.isMobile()" target="_blank" href="<%= online_show_proof_path @transfer.id %>" class="item" style="color: grey; font-size: 125%; color: #4366A8">
+                              <i class="icon hand point up outline"></i>
+                              Ver Comprovante
+                              <br/>
+                              
+                              <small>
+                                baixe utilizando versão Web
+                              </small>
+                          </a>
+                      </div>
+                    <% end %>
+
+
+                    <% if @card && !@card.nil? %>
+                      <%= render partial: 'online/pos/partial/modal_pos-card-data' %>
+
+                      <% if @card.status_acronym_id == 50050 %>
+                        <div class="ui segment basic very padded custom-pointer" style="font-size: 80% !important; background: white !important; border-radius: 8px; text-align: center !important;"  onclick="$('#pos-card-data').modal('show');">
+
+                            <div style="font-size: 150%;">
+                                <div style="font-weight: 400;">
+                                    <%= @card.entity.name %>
+                                </div>
+
+                                <br/>
+
+                                <div style="font-size: 150%; font-weight: 400; color: green;">
+                                    Cartão Liberado
+                                </div>
+                            </div>
+
+                            <br/>
+
+                            <div style="color: grey; font-size: 125%;">
+                                Ver saldos
+                                <i class="icon hand point up outline"></i>
+                            </div>
+                        </div>
+                      <% else %>
+                        <div class="ui segment basic very padded custom-pointer" style="font-size: 80% !important; background: white !important; border-radius: 8px; text-align: center !important;" onclick="$('#pos-card-data').modal('show');">
+                            <div style="font-size: 150%;">
+                                <div style="font-weight: 400;">
+                                    <%= @card.entity.name %>
+                                </div>
+
+                                <br/>
+
+                                <div style="font-size: 150%; font-weight: 400; color: red;">
+                                    Cartão Bloqueado
+                                </div>
+                            </div>
+
+                            <br/>
+
+                            <div style="color: grey; font-size: 125%;">
+                                Saldos e Desbloqueio
+                                <i class="icon hand point up outline"></i>
+                            </div>
+                        </div>
+                      <% end %>
+                    <% end %>
+
+                    <% if @card && @card.status_acronym_id == 50050 && @balances.size > 0 %>
+
+                      <%= form_for(@pos_sell, url: '/pos/sell', method: 'post', html: {id: 'form_sell', name: 'form_sell'}) do |f2| %>
+
+                        <script>
+                          $(document).ready(function () {
+                              $('#form_sell').submit(function () {
+                                  $('#pos_sell_card_password').val(sha1($('#pos_sell_card_password').val()));
+                              });
+                          });
+                        </script>
+
+                        <%= f2.hidden_field :card_code, id: 'sell_card_code' %>
+
+                        <div class="ui divider fitted"></div>
+                        <br/>
+
+                        <% if @balances.size == 1 %>
+                          <div class="ui icon message small purple">
+                              <i class="check icon"></i>
+
+                              <div class="content">
+                                  <p>
+                                      Sua loja e o cliente possuem somente o benefício
+                                      <b><%=  @balances.first.coin.name %></b> em comum, 
+                                      então já deixamos selecionado para facilitar para você.
+                                  </p>
+                              </div>
+                          </div>
+
+                          <div class="field disabled">
+                              <div class="ui large left icon input">
+                                  <input 
+                                      type="text"
+                                      value="<%= @balances.first.coin.name %>"
+                                      style="padding-left: 50px !important;"
+                                      />
+
+                                  <i class="handshake outline icon"></i>
+                              </div>
+                          </div>
+
+                          <%= f2.hidden_field :coin_id, value: @balances.first.coin.id %>
+
+                        <% elsif @balances.size == 2 %>
+                          <div class="ui icon message small blue">
+                              <i class="icon info"></i>
+
+                              <div class="content">
+                                  <p>
+                                      Está listado abaixo os <b style="font-size: 110%;">convênios</b> que a
+                                      sua loja possui em comum com o cliente.
+                                  </p>
+                              </div>
+                          </div>
+
+                          <div class="field ">
+                              <div class="ui large input">
+                                  <%= f2.select :coin_id, options_for_select(@balances.collect{ |u| [u.coin.name, u.coin.id] }), {prompt: 'Selecione o convênio...'}, {'ng-required': true} %>
+                              </div>
+                          </div>
+                        <% end %>
+
+
+                        <div class="ui divider fitted"></div>
+                        <br/>
+                        <br/>
+
+
+
+                        <div class="field" ng-init="form.value = '<%= @pos_sell.value ? number_to_currency(@pos_sell.value, unit: '', separator: ',', delimiter: '.') : '' %>'">
+                            <div class="ui large left icon input">
+                                <%= f2.text_field :value,
+                                  placeholder: 'Valor',
+                                  style: 'padding-left: 50px !important;',
+                                  class: 'mask-money',
+                                    'ng-model': 'form.value',
+                                    'required': true,
+                                    'ng-keyup': "form.value = $jQuery('#pos_sell_value').val()",
+                                    maxlength: 8
+                                %>
+
+                                  <i class="dollar icon"></i>
+                              </div>
+                          </div>
+
+                          <% if !@card.is_gift %>
+                            <div class="field">
+                                <div class="ui large left icon input">
+
+                                    <%= f2.password_field :card_password,
+                                      placeholder: 'Senha númerica do Cliente',
+                                      style: 'padding-left: 50px !important;',
+                                      'ng-model': 'form.card_password',
+                                      'required': true,
+                                      'autocomplete': false,
+                                      minlength: 4
+                                  %>
+
+                                    <i class="lock icon"></i>
+                                </div>
+                            </div>
+                          <% else %>
+                            <%= f2.hidden_field :card_password, value: '000000' %>
+                          <% end %>
+                      </div>
+
+
+                      <br/>
+
+                      <div class="ui right aligned segment basic" style="margin: 0px; padding: 0px;">
+                          <button
+                              type="submit"
+                              class="ui button blue fluid massive custom-font-ubuntu"
+                              style="font-size: 16px; height: 62px; background: #4366A8;"
+                              ng-disabled="!form_sell.$valid || form.value == '0,00'">
+
+                              CONFIRMAR VENDA
+                          </button>
+                      </div>
+                    <% end %>
+                  <% end %>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+
+
+  <script>
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+  </script>

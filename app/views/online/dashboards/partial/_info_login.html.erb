@@ -1,0 +1,32 @@
+<div class="ui segment very padded basic shadow custom-pointer" style="background: white !important; border-radius: 8px;">
+    <div style="font-size: 150%;">
+        <div style="font-size: 80%; font-weight: 600;">
+            <%= Identification.where("entity_id = '#{session[:entity]['id']}' AND (type_acronym_id = 100002 OR type_acronym_id = 100001)").first.value %>
+        </div>
+
+        <br/>
+
+        <div style="font-size: 25px; font-weight: 800;">
+            <%#= @name_first %>
+            Usuário
+        </div>
+    </div>
+
+    <br />
+
+    <div style="font-weight: 600;">
+        <% if @name_last.empty?  %>
+          &nbsp;
+        <% else %>
+          <%= @name_last %>
+        <% end %>
+    </div>
+
+    <%= link_to '/profile', class: 'ui button large', style: 'position: absolute; bottom: 65px; right: 16px; width: 70px; padding: 10px 0;' do %>
+      Perfil
+    <% end %>
+
+    <%= link_to '/logout', class: 'ui button large', style: 'position: absolute; bottom: 18px; right: 16px; width: 70px; padding: 10px 0;' do %>
+      Sair
+    <% end %>
+</div>

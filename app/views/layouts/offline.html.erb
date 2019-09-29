@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WhatsApp Simulator</title>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+
+        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+    </head>
+
+    <body ng-app="ProjectRaw">
+        <%= render 'layouts/global_partials/flash'  %>
+        <%= render 'layouts/global_partials/loading'  %>
+
+        <div class="pusher">
+            <div id="global-content" class="custom-body-fullscreen-fixed">
+
+                <%= yield %>
+
+            </div>
+        </div>
+    </body>
+</html>

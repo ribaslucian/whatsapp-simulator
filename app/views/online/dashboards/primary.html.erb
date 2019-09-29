@@ -1,0 +1,67 @@
+<style>
+    .custom-button {
+        font-size: 17px !important;
+        padding: 15px 25px !important;
+    }
+
+    .button {
+        box-shadow: 0 3px 9px rgba(50,50,9,0), 3px 4px 8px rgba(94,114,228,.1) !important;
+    }
+</style>
+
+<br/><br/>
+<br/>
+
+<div class="ui container">
+
+    <div class="owl-carousel">
+        <div class="item">
+            <%= render partial: 'online/dashboards/partial/info_login' %>
+        </div>
+
+        <div class="item">
+            <%= render partial: 'online/dashboards/partial/info_messages' %>
+        </div>
+
+        <div class="item">
+            <%= render partial: 'online/dashboards/partial/info_rooms' %>
+        </div>
+    </div>
+
+    <br/>
+    <div class="ui divider fitted"></div>
+    <br/>
+
+    <div class="owl-carousel primary-options">
+        <div class="item">
+            <%= render partial: 'online/dashboards/partial/menu_messages' %>
+        </div>
+
+        <div class="item">
+            <%= render partial: 'online/dashboards/partial/menu_questionnaries' %>
+        </div>
+
+        <div class="item">
+            <%= render partial: 'online/dashboards/partial/menu_rooms' %>
+        </div>
+
+<%#*<div class="item">%>
+<%#= render partial: 'online/dashboards/partial/menu_datas' %>
+<%#*</div>%>
+
+<%#*<div class="item">%>
+<%#= render partial: 'online/dashboards/partial/menu_funcionarios' %>
+<%#*</div>%>
+
+<%#*<div class="item">%>
+<%#= render partial: 'online/dashboards/partial/menu_faturas' %>
+<%#*</div>%>
+    </div>
+
+
+    <br/><br/>
+    <br/><br/>
+
+<%#*<div ng-include="'../dashboard/modal_card_lock_confirm.html'"></div>%>
+<%#*<div ng-include="'../dashboard/modal_card_unlock_confirm.html'"></div>%>
+</div>

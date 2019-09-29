@@ -1,0 +1,35 @@
+<div id="modal_card_unlock_confirm" class="ui basic modal">
+    <div class="ui icon header">
+        <i class="lock icon"></i>
+        <br/>
+        Bloquear Cartão
+        <br/>
+        **** **** **** <%= @card.code[-4, 4] %>
+    </div>
+
+    <div class="content" style="text-align: center;">
+        <p>
+            Após bloquear não será possível efetuar compras e transações com seu cartão.
+            <br/><br/>
+            <b>
+                Tem certeza que deseja Bloquear ?
+            </b>
+        </p>
+    </div>
+
+    <div class="actions">
+        <div class="custom-center">
+            <div class="ui red basic cancel inverted button large">
+                <i class="remove icon"></i>
+                Não
+            </div>
+            
+            &nbsp;
+
+            <%= link_to online_block_card_path(id: @card.id), class: 'ui red ok inverted button large' do %>
+                <i class="lock icon"></i>
+                Bloquear
+            <% end %>
+        </div>
+    </div>
+</div>

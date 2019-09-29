@@ -1,0 +1,111 @@
+<br/><br/><br/>
+<br/>
+
+<div class="ui container grid two column stackable centered">
+
+    <div class="column">
+
+        <div class="ui segment very padded grey inverted custom-bg-gradient-8 top attached custom-shadow-segment" style="border-radius: 8px 8px 0 0; border: 0px !important;">
+            <div style="font-size: 150%;">
+                <div style="font-size: 25px; font-weight: 800;">
+                    <%= session[:entity]['name'] %>
+                </div>
+            </div>
+
+            <br />
+
+
+            <div style="font-size: 120%; font-weight: 600;">
+                <%= Identification.where("entity_id = '#{session[:entity]['id']}' AND (name_acronym_id = 100002 OR name_acronym_id = 100001)").first.value %>
+            </div>
+        </div>
+
+
+        <div class="ui basic segment very padded bottom attached custom-bg-white custom-shadow-segment" style="border-radius: 0 0 8px 8px; border: 0px !important;">
+
+            <style>
+                .ui.form input {
+                    background: #e5e5e5 !important;
+                    font-weight: 900;
+                    border: none !important;
+
+                    height: 62px !important;
+                    font-size: 16px !important;
+                }
+
+                .form input:focus {
+                    outline: 2px solid #4366A8 !important;
+                }
+
+                ::-webkit-input-placeholder, ::placeholder {
+                    color: #8e8e9f !important;
+                }
+            </style>
+
+            <%= form_for(@entity, url: '/profile_update', method: 'post', html: { class: 'ui form huge'}) do |form| %>
+
+                <div style="color: grey; font-size: 16px;">
+                    Contato
+                </div>
+
+                <br/>
+                <div class="ui divider fitted"></div>
+                <br/>
+
+
+                <%= form.fields_for :email do |f| %>
+                  <div class="field">
+                      <div class="ui input left icon">
+                          <%= f.text_field :value, placeholder: 'E-mail primário', style: 'padding-left: 50px !important;' %>
+                          <i class="icon mail"></i>
+                      </div>
+                  </div>
+
+                  <%= f.error_message_for :value %>
+                <% end %>
+
+
+                <%= form.fields_for :phone do |f| %>
+                  <div class="field">
+                      <div class="ui input left icon">
+                          <%= f.text_field :value, placeholder: 'Telefone primário', style: 'padding-left: 50px !important;', class: 'custom-mask-phone' %>
+                            <i class="icon phone"></i>
+                        </div>
+                    </div>
+
+                    <%= f.error_message_for :value %>
+                  <% end %>
+
+
+                  <br/>
+
+                  <a
+                      href="/update_password"
+                      class="field custom-pointer"
+                      style="color: grey; font-size: 14px;">
+
+                      <i class="icon user"></i>
+                      Deseja alterar sua <b>senha</b> de acesso ?
+                  </a>
+
+                  <br/>
+                  <br/>
+
+                  <br/>
+
+                  <div class="ui right aligned segment basic" style="margin: 0px; padding: 0px;">
+                      <button
+                          type="submit"
+                          class="ui button blue fluid massive custom-font-ubuntu"
+                          style="font-size: 16px; height: 62px; background: #4366A8;">
+
+                          SALVAR
+                      </button>
+                  </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+
+    <br/>
+    <br/>

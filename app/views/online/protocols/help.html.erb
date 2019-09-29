@@ -1,0 +1,60 @@
+<br/><br/><br/>
+<br/>
+
+<div class="ui container grid two column stackable centered">
+    <div class="column" style="line-height: 28px">
+        <div class="ui basic segment very padded custom-bg-white custom-shadow-segment" style="border-radius: 8px;">
+
+            <i class="icon question custom-center disabled" style="font-size: 40px"></i>
+            <div class="custom-center" style="font-weight: 800; padding: 15px 0px; font-size: 200%;">
+                Me ajuda
+            </div>
+            <div class="ui divider fitted"></div>
+            <br />
+
+            <% if @entity.emails.size == 0 || @entity.phones.size == 0 %>
+            <div style="font-size: 1.42857143rem; line-height: 30px; text-align: justify;">
+                Para retornarmos seu contato
+                é necessário que complete seu 
+                cadastro, informando um telefone
+                e e-mail para contato.
+            </div>
+            <br />
+            <%= link_to online_profile_path, {class:"ui button positive fluid massive custom-font-ubuntu", style: "font-size: 16px; line-height: 40px; background: #4366A8;"} do %>
+                COMPLETAR CADASTRO
+                <i class="arrow right icon"></i>
+            <% end %>
+
+            <% else %>
+            <%= form_for("/help/send", method: 'post', html: { class: 'ui form huge', style:"font-size: 16px", name: 'form' }) do |form| %>
+                Em que podemos ajudar?<br />
+                <br />
+                <div class="field">
+                    <%= select_tag :type_acronym_id, options_from_collection_for_select(Acronym.where("data_refer = 'protocols.type' AND id >= 60103").order(created: :asc), :id, :name), {prompt: 'Tipo de solicitação', class: 'ui search dropdown'} %>
+                </div>
+                <div class="field">
+                    <div class="ui left icon input">
+                        <textarea
+                            type="textarea"
+                            name="message"
+                            style="padding-left: 55px !important;"
+                            placeholder="Digite aqui..."
+                            rows="4"
+                            ></textarea>
+
+                        <i class="icon comment outline"></i>
+                    </div>
+                </div>
+                <br />
+                <button
+                    type="submit"
+                    class="ui button blue fluid massive custom-font-ubuntu"
+                    style="font-size: 16px; line-height: 40px; background: #4366A8;">
+
+                    ENVIAR
+                </button>
+            <% end %>
+            <% end %>
+        </div>
+    </div>
+</div>

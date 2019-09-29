@@ -1,0 +1,93 @@
+<div id="pos-card-data" class="ui small mini modal">
+    <i class="close icon"></i>
+
+    <div class="header">
+        Consulta e Desbloqueio de Cartões
+    </div>
+
+    <div class="image content">
+
+        <div class="description">
+
+            <style>
+                #modal-form input {
+                    /*border: 2px dashed #ccc !important;*/
+                }
+            </style>
+
+            <div id="modal-form" class="ui form large">
+                <div class="field">
+                    <label>Titular:</label>
+                    <input type="text" value="<%= @card.entity.name %>" readonly />
+                </div>
+
+                <% if @card.status_acronym_id != 50050 %>
+
+                  <% if @card.status_acronym_id == 50054 %>
+
+                    <%= form_for(@pos_sell, url: '/pos/card/unblock', method: 'post') do |f2| %>
+                      <%= f2.hidden_field :card_code %>
+
+                      <div class="field error">
+                          <label>Cartão:</label>
+                          <div class="ui action input">
+                              <input type="text" value="<%= @card.status.name %>" readonly />
+                              <button type="submit" class="ui red button">
+                                  <i class="icon unlock"></i>
+                                  Desbloquear
+                              </button>
+                          </div>
+                      </div>
+                    <% end %>
+
+
+                  <% else %>
+                    <div class="field error">
+                        <label>Cartão (não é possível desbloquear esse tipo de status):</label>
+                        <div class="ui input">
+                            <input type="text" value="<%= @card.status.name %>" readonly />
+                        </div>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <div class="field">
+                      <label>Cartão:</label>
+                      <div class="ui input">
+                          <input type="text" value="<%= @card.status.name %>" readonly />
+                      </div>
+                  </div>
+                <% end %>
+
+                <h4 class="ui header dividing">
+                    Saldos
+                </h4>
+
+                <% if @card.is_gift %>
+                  <div class="field">
+                      <label>Vale Presente:</label>
+                      
+                      <div class="field">
+                          <input type="text" value="$ <%= number_to_currency(@card.balance, unit: '', separator: ',', delimiter: '.') %>" readonly />
+                      </div>
+                  </div>
+                <% else %>
+                  <% @balances_client.each do |b| %>
+                    <div class="field">
+                        <label><%= b.coin.name %>:</label>
+                        <div class="field">
+                            <input type="text" value="$ <%= number_to_currency(b.value, unit: '', separator: ',', delimiter: '.') %>" readonly />
+                        </div>
+                    </div>
+                  <% end %>
+                <% end %>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="actions">
+        <div class="ui black deny large button">
+            Ok
+        </div>
+    </div>
+</div>

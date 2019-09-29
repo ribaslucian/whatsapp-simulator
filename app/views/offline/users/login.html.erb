@@ -1,0 +1,156 @@
+<script>
+  $(document).ready(function () {
+      $('#form_login').submit(function () {
+          $('#password_sha1').val(sha1($('#password').val()));
+          $('#password_md5').val(CryptoJS.MD5($('#password').val()).toString());
+          $('#password').val('');
+      });
+
+<%#*$('#modal_info_liv2').modal('show')%>
+  });
+</script>
+
+<%#*<div class="custom-center-absolute-y custom-width-percent-100">%>
+<div style="margin-top: 30px;">
+
+    <div class="ui container">
+        <style>
+            .custom-body-fullscreen-fixed {
+                background: white !important;
+            }
+
+            .form input {
+                background: #e5e5e5 !important;
+                font-weight: 900;
+                border: none !important;
+            }
+
+            .form input:focus {
+                outline: 2px solid #4366A8 !important;
+            }
+
+            ::-webkit-input-placeholder, ::placeholder {
+                color: #8e8e9f !important;
+            }
+
+            .ui.dropdown .menu .item {
+                font-size: 18px;
+                padding: 15px !important;
+            }
+        </style>
+
+
+        <div class="ui grid two column centered stackable custom-width-percent-100">
+            <div class="column eigth wide" style="min-width: 320px !important;">
+                <div class="custom-segment" style="padding: 60px!important;">
+                    <br/>
+                    <div class="custom-center custom-font-mali custom-text-bold-900" style="letter-spacing: -4px !important; font-size: 100px;">
+                        <span style="color: #333; font-size: 40%;">WhatsApp Simulator</span>
+                    </div>
+
+                    <br/><br/>
+                    <br/><br/>
+
+                    <%= form_tag('/login', method: 'post', class: 'ui form massive', name: 'form', id: 'form_login') do %>
+
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <input
+                                    name="document"
+                                    type="text"
+                                    placeholder="Números do seu CPF ou CNPJ"
+                                    class="custom-font-ubuntu custom-mask-number-natural"
+                                    style="padding-left: 65px !important; height: 62px; font-size: 18px"
+                                    maxlength="14"
+
+                                    ng-model="login.document"
+                                    ng-required="true"
+                                    ng-keyup="input_validation_document_length(form.document, login.document);"
+                                    />
+
+                                <i class="icon address card outline"></i>
+                            </div>
+
+                            <div
+                                class="custom-center"
+                                style="margin-top: -7px !important;"
+
+                                ng-messages="form.document.$error"
+                                ng-show="form.document.$invalid && form.document.$dirty">
+
+                                <div class="ui pointing label large orange" ng-message="required">
+                                    Esse campo deve ser preenchido.
+                                </div>
+
+                                <div class="ui pointing label large orange" ng-message="document_length">
+                                    Este campo deve ter 11 dígitos do CPF ou 14 do CNPJ.
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <input
+                                    id="password"
+                                    type="password"
+                                    name="password"
+                                    autocomplete="false"
+                                    placeholder="Digite sua Senha"
+                                    class="custom-font-ubuntu" 
+                                    style="padding-left: 65px !important; height: 62px; font-size: 18px"
+
+                                    ng-model="login.password"
+                                    ng-required="true"
+                                    ng-disabled="form.document.$invalid"
+                                    />
+
+                                <i class="icon lock"></i>
+                            </div>
+
+                            <div
+                                class="custom-center"
+                                style="margin-top: -7px !important;"
+
+                                ng-messages="form.password.$error"
+                                ng-show="form.password.$invalid && form.password.$dirty">
+
+                                <div class="ui pointing label large orange" ng-message="required">
+                                    Esse campo deve ser preenchido.
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="field">
+                            <input id="password_sha1" type="hidden" name="password_sha1" />
+                            <input id="password_md5" type="hidden" name="password_md5" />
+
+                            <button
+                                type="submit"
+                                class="ui button blue fluid massive custom-font-ubuntu"
+                                style="font-size: 16px; height: 62px; background: #28ad00;"
+                                ng-disabled="form.password.$invalid">
+
+                                ENTRAR
+                            </button>
+                        </div>
+
+                        <div class="field">
+                            <br/>
+                            <a href="/forgot_password" class="field custom-center" style="color: grey; font-size: 16px;">
+                                Esqueceu sua senha ?
+                            </a>
+                        </div>
+
+                      <% end %>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  <%#= render partial: 'offline/users/partial/modal_info_liv2' %>

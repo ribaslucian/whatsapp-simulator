@@ -1,0 +1,62 @@
+<div id="modal_balances" class="ui modal basic">
+    <div class="ui icon header">
+        <i class="dollar icon"></i>
+        <br/>
+        Saldos
+        <br/>
+    </div>
+
+    <div class="content">
+        <div class="ui grid three columns centered stackable">
+            <% @balances.each do |b| %>
+              <div class="column">
+                  <div class="ui segment padded basic shadow" style="background: white !important; border-radius: 8px; padding: 20px 30px;">
+
+                      <div style="font-size: 150%; text-align: center; color: #333 !important;">
+                          <div>
+                              <%= b.coin_name %>
+                          </div>
+
+
+                          <% if (b.value > 0) %>
+
+                            <div style="font-size: 150%; font-weight: 600; color: green;">
+                                <%= number_to_currency(b.value, precision: 2, unit: "$ ", separator: ",", delimiter: ".") %>
+                            </div>
+                          <% else %>
+
+                            <div style="font-size: 150%; font-weight: 600; color: grey;">
+                                <%= number_to_currency(b.value, precision: 2, unit: "$ ", separator: ",", delimiter: ".") %>
+                            </div>
+                          <% end %>
+                      </div>
+
+                      <br/>
+
+                      <% if b.limit_negative != 0 && b.limit_negative != nil %>
+                        <div style="color: #303f9f; text-align: center;">
+                            Limite pré liberado
+                            <b>
+                                <%= number_to_currency(b.limit_negative * -1, precision: 2, unit: "$ ", separator: ",", delimiter: ".") %>
+                            </b>
+                        </div>
+                      <% elsif b.limit_negative == nil %>
+                        <div style="color: #303f9f; text-align: center;">
+                            Limite pré liberado efetivo
+                        </div>
+                      <%  end %>
+
+                  </div>
+              </div>
+            <% end %>
+        </div>
+    </div>
+
+    <div class="actions">
+        <div class="custom-center">
+            <div class="ui cancel inverted button large">
+                Ok
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+-- ALTER TABLE contracts ADD CONSTRAINT rule_constraint_contracts_only_different_entities_if_not_one
+-- CHECK (CASE
+--   WHEN (contractor_entity_id = 1 AND contracted_entity_id = 1) THEN TRUE
+--   WHEN (contractor_entity_id <> contracted_entity_id) THEN TRUE
+--   ELSE FALSE
+-- END);

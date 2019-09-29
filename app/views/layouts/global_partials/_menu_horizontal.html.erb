@@ -1,0 +1,17 @@
+<div class="ui inverted massive menu top fixed custom-menu-global-top">
+    <div class="ui container">
+        <a href="/dashboard" class="item custom-menu-global-top-title" style="color: white;">
+            WhatsApp Sim.
+        </a>
+
+        <div class="item custom-pointer" onclick="sidebar()">
+            <i class="icon bars"></i>
+        </div>
+
+        <% if !current_page? controller: 'dashboards', action: 'primary' %>
+          <a href="/dashboard" class="item custom-pointer">
+              <i class="icon arrow left"></i>
+          </a>
+        <% end %>
+    </div>
+</div>
