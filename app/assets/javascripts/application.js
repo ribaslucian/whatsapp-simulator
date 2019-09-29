@@ -38,8 +38,6 @@
 //= require init
 //= require services/flash
 //= require services/basic
-//= require controllers/extract
-//= require controllers/pos
 
 $(document).ready(function () {
 
