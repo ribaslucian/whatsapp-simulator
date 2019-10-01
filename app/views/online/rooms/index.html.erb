@@ -1,0 +1,487 @@
+<style>
+    .rooms {
+        font-family: "Roboto" !important;
+        /*font-family: 'Ubuntu', sans-serif;*/
+        /*font-family: "Poppins" !important;*/
+        /*font-family: 'PT Sans', sans-serif;*/
+        height: 100%;
+        min-width: 768px;
+        max-width: 1366px;
+        margin: 0px auto;
+        background: #ccc;
+        padding: 30px;
+    }
+
+    .float-right {
+        float: right;
+    }
+
+    .pos-relative {
+        position: relative;
+    }
+
+    .pos-absolute {
+        position: absolute;
+    }
+
+    .segment-header {
+        background: #f0f0f0;
+        padding: 20px;
+        font-weight: bold;
+        font-size: 150%;
+    }
+
+    .comment .content .text {
+        font-size: 12px !important;
+        color: #444 !important;
+    }
+
+
+    .comments {
+        margin: 0px 0 0 0 !important;
+        background: white;
+    }
+
+    .comment {
+        border-bottom: 1px solid #ddd !important;
+        padding-bottom: 10px !important;
+        margin: 0px !important;
+        padding: 15px !important;
+    }
+    .comment:hover {
+        background: #f9f9f9 !important;
+    }
+
+
+    .comment.active {
+        background: #eee !important;
+        border-bottom: 1px solid #eee !important;
+        border-top: 1px solid #eee !important;
+        margin-top: -1px !important;
+    }
+
+    .comment .text {
+        color: grey !important;
+        font-size: 12px !important;
+        margin-top: 5px !important;
+    }
+
+    .comment .content {
+        position: relative;
+        bottom: -5px;
+    }
+    .comment .content .text {
+        font-size: 12px !important;
+        color: grey !important;
+        letter-spacing: 0.5px !important;
+        /*font-weight: bold;*/
+    }
+
+    .custom-no-spaces {
+        margin: 0px !important;
+        padding: 0px !important;
+    }
+
+    .rooms .ui.grid {
+        height: 100%;
+    }
+
+    .rooms .ui.grid .column:nth-of-type(1) {
+        background: white !important;
+    }
+
+    .rooms .ui.grid .column:nth-of-type(2) {
+        background: #E2DBD3;
+<%#*background-image: url('wpp-bg.jpg');%>
+        background-image: url('wpp-bg.png');
+        background-repeat: repeat;
+        background-size: 50%;
+    }
+
+    .rooms .ui.grid .column:nth-of-type(2) {
+        border-left: 1px solid #ddd;
+    }
+
+    .comment .dropdown {
+        right: 24px; top: 30px;
+    }
+
+    .ui.grid {
+<%#*box-shadow: 0px 0px 10px 0px rgba(179,179,179,1) !important;%>
+    }
+</style>
+
+<div class="rooms">
+    <div class="ui grid">
+        <div class="column five wide custom-no-spaces">
+
+            <div class="segment-header">
+                Conversas
+
+                <div class="dropdown large float-right pos-relative">
+                    <div class="dropdown-title">
+                        <i class="icon bars"></i>
+                    </div>
+
+                    <div class="bottom center horizontal menu">
+                        <a href="#" class="item icon bold">
+                            <i class="material-icons">person_add</i>
+                            Sincronizar Contato
+                        </a>
+
+                        <a href="#" class="item icon bold">
+                            <i class="material-icons">group_add</i>
+                            Criar Grupo
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui comments">
+                <div class="comment">
+                    <div class="avatar">
+                        <img src="https://semantic-ui.com/images/avatar/small/matt.jpg">
+                    </div>
+
+                    <div class="content">
+                        <div class="author">Matt</div>
+
+                        <div class="text">
+                            Uou! Isso é demais cara...
+                        </div>
+                    </div>
+
+                    <div class="dropdown pos-absolute">
+                        <div class="dropdown-title">
+                            <i class="icon bars"></i>
+                        </div>
+
+                        <div class="center horizontal menu">
+                            <a href="#" class="item icon bold">
+                                <i class="material-icons">close</i>
+                                <b>Remover</b>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comment">
+                    <div class="avatar">
+                        <img src="https://semantic-ui.com/images/avatar/small/elliot.jpg">
+                    </div>
+
+                    <div class="content">
+                        <div class="author">Elliot Fu</div>
+
+                        <div class="text">
+                            <i class="icon image grey"></i>Figura
+                        </div>
+                    </div>
+
+                    <div class="dropdown pos-absolute">
+                        <div class="dropdown-title">
+                            <i class="icon bars"></i>
+                        </div>
+
+                        <div class="center horizontal menu">
+                            <a href="#" class="item icon bold">
+                                <i class="material-icons">close</i>
+                                <b>Remover</b>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comment active">
+                    <div class="avatar">
+                        <img src="https://semantic-ui.com/images/avatar/small/joe.jpg">
+                    </div>
+
+                    <div class="content">
+                        <div class="author">Joe Henderson</div>
+
+                        <div class="text">
+                            <i class="icon edit grey"></i>Questionário
+                        </div>
+                    </div>
+
+                    <div class="dropdown pos-absolute">
+                        <div class="dropdown-title">
+                            <i class="icon bars"></i>
+                        </div>
+
+                        <div class="center horizontal menu">
+                            <a href="#" class="item icon bold">
+                                <i class="material-icons">close</i>
+                                <b>Remover</b>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comment pos-relative">
+                    <div class="avatar">
+                        <img src="https://www.colegiosantoantonio.com.br/wp-content/uploads/2015/11/community-icon.png" style="border-radius: 100%;">
+<%#*<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmVRuHlGzJ_iA26EyJqeyLajxZsh9omJWCxaZvHCKhfMwVv3gi">%>
+<%#*<i class="icon users circular inverted blue large custom-center-absolute-xy" style="font-size: 18px"></i>%>
+                    </div>
+
+                    <div class="content">
+                        <div class="author">Pesquisa Política (4)</div>
+
+                        <div class="text">
+                            <i class="icon video grey"></i>Vídeo
+                        </div>
+                    </div>
+
+                    <div class="dropdown pos-absolute">
+                        <div class="dropdown-title">
+                            <i class="icon bars"></i>
+                        </div>
+
+                        <div class="center horizontal menu">
+                            <a href="#" class="item icon bold">
+                                <i class="material-icons">close</i>
+                                <b>Remover</b>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="column eleven wide custom-no-spaces">
+
+            <div class="segment-header">
+                Joe Henderson
+            </div>
+
+            <style>
+                .custom-segment-top {
+                    background: #f0f0f0;
+                    font-size: 150%;
+                    padding: 20px;
+                }
+                .custom-message-container {
+                    display: table;
+                    background: white;
+                    padding: 12px 14px;
+                    border-radius: 7px;
+                    margin: 5px 0;
+                    font-size: 15px;
+                    font-family: "Roboto" !important;
+                }
+                .custom-message-container.custom-float-right {
+                    background: #D8F8C7 !important;
+                }
+                .custom-float-right {
+                    float: right;
+                    margin-right: 10px;
+                }
+                .custom-float-left {
+                    float: left;
+                }
+                .custom-chat-checkbox {
+                    margin: 14px 15px;
+                    margin-right: 0px;
+                }
+                input[type=radio] {
+                    width: 20px;
+                    height: 20px;
+                }
+                .ui.clearing.segment.basic.custom-no-spaces {
+                    padding: 0px 20px !important;
+                }
+                .custom-chat-messsages * {
+                    color: #444;
+                }
+            </style>
+
+            <div class="custom-chat-messsages" style="margin-top: 20px;">
+
+                <div class="ui clearing segment basic custom-no-spaces">
+
+                    <div class="custom-message-container custom-float-right custom-shadow-input">
+                        Olá Joe!
+
+                        <div class="dropdown float-right" style="margin-left: 20px;">
+                            <div class="dropdown-title">
+                                <!--<i class="material-icons white-text">&#xE5D2;</i>-->
+                                <i class="icon bars"></i>
+                            </div>
+
+                            <div class="left horizontal menu" style="display: none !important;">
+                                <a href="#" class="item icon bold">
+                                    <i class="material-icons">remove_red_eye</i>
+                                    Dados da Mensagem
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui clearing segment basic custom-no-spaces">
+                    <div class="custom-message-container custom-float-right custom-shadow-input" style="border: 2px dashed grey;">
+                        <b>Título do Questionário (4)</b>
+                        &nbsp;
+
+                        <b style="color: teal; font-size: 90%;">
+                            <i class="icon time" style="color: teal; position: relative; bottom: -1px;"></i>
+                            Pendente (2)
+                        </b>
+
+
+                        <div class="dropdown float-right" style="margin-left: 20px;">
+                            <div class="dropdown-title">
+                                <!--<i class="material-icons white-text">&#xE5D2;</i>-->
+                                <i class="icon bars"></i>
+                            </div>
+
+                            <div class="left horizontal menu" style="display: none !important;">
+                                <a href="#" class="item icon bold">
+                                    <i class="material-icons">&#xE7FF;</i>
+                                    Usuários
+                                </a>
+
+                                <div class="item dropdown icon" style="width: 150px;">
+                                    <div class="dropdown-title bold">
+                                        <i class="material-icons">&#xE875;</i>
+                                        Opções
+
+                                        <i class="material-icons">&#xE315;</i>
+                                    </div>
+
+                                    <div class="menu right vertical">
+                                        <a href="#" class="item icon bold">
+                                            <i class="material-icons">&#xE875;</i>
+                                            Opção
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui clearing segment basic custom-no-spaces">
+                    <div class="custom-message-container custom-float-right custom-shadow-input">
+                        Você pode responder essa questionário por gentileza ?
+
+                        <div class="dropdown float-right" style="margin-left: 20px;">
+                            <div class="dropdown-title">
+                                <!--<i class="material-icons white-text">&#xE5D2;</i>-->
+                                <i class="icon bars"></i>
+                            </div>
+
+                            <div class="left horizontal menu" style="display: none !important;">
+                                <a href="#" class="item icon bold">
+                                    <i class="material-icons">&#xE7FF;</i>
+                                    Usuários
+                                </a>
+
+                                <div class="item dropdown icon" style="width: 150px;">
+                                    <div class="dropdown-title bold">
+                                        <i class="material-icons">&#xE875;</i>
+                                        Opções
+
+                                        <i class="material-icons">&#xE315;</i>
+                                    </div>
+
+                                    <div class="menu right vertical">
+                                        <a href="#" class="item icon bold">
+                                            <i class="material-icons">&#xE875;</i>
+                                            Opção
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="ui clearing segment basic custom-no-spaces">
+                    <div class="custom-message-container custom-float-left custom-shadow-input">
+                        Oi
+                    </div>
+                </div>
+
+                <div class="ui clearing segment basic custom-no-spaces">
+
+                    <div class="custom-message-container custom-float-left custom-shadow-input">
+                        Ual! Eu não sabia disso
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+            <style>
+                .wpp-footer {
+<%#*background: #f0f0f0;%>
+                    position: absolute;
+                    width: 100%;
+                    padding: 20px;
+                    left: 0px;
+                    bottom: 0px;
+                    <%#*background: #E2DBD3;%>
+                    <%#*border-top: 2px solid #ccc;%>
+                }
+            </style>
+
+
+            <div class="wpp-footer">
+
+                <div class="ui fluid left action input large custom-shadow">
+
+                    <div class="ui button icon" style="padding: 20px; background: white !important;">
+                        <i class="icon bars grey"></i>
+                    </div>
+
+                    <input type="text" placeholder="Digite uma mensagem..." style="padding-left: 0px; border-radius: 0px;  border: 0px !important;">
+
+                    <div class="ui button facebook icon  custom-shadow" style="border-radius: 0px 5px 5px 0px; padding: 16px 20px 16px 16px;">
+                        <i class="icon paper plane outline"></i>
+                    </div>
+                </div>
+
+<%#*<button class="ui button icon large" style="padding: 14px 15px 13px 15px; background: none !important;">%>
+<%#*<i class="icon envelope outline"></i>%>
+<%#*</button>%>
+
+<%#*<i class="big icons">%>
+<%#*<i class="icon envelope outline disabled"></i>%>
+<%#*<i class="corner clock icon grey"></i>%>
+<%#*</i>%>
+
+<%#*<i class="big icons">%>
+<%#*<i class="icon file alternate outline disabled"></i>%>
+<%#*<i class="corner question circle icon grey"></i>%>
+<%#*</i>%>
+
+<%#*<div class="ui action input large" style="width: 86%; margin-left: 5px;">%>
+<%#*<input type="text" placeholder="Digite uma mensagem...">%>
+<%#*<div class="ui button teal">%>
+<%#*<i class="icon paper plane pos-relative" style="top: -2px;"></i>%>
+<%#*Enviar%>
+<%#*</div>%>
+<%#*</div>%>
+
+            </div>
+        </div>
+
+        <!--            <div class="col-flex wid-perc-25">
+                        <div class="enconder-segment">
+                            <div class="actions">
+                                <i class="icon add big grey center"></i>
+                                <div class="center text-weight-7 color-grey">
+                                    <i class="icon grey file"></i>
+                                    Relatórios
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+    </div>
+</div>

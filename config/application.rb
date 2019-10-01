@@ -21,7 +21,7 @@ module ProjectRaw
     
     #
     
-    config.assets.paths << Rails.root.join('angular-application', 'owl-carousel', 'angular', 'jquery')
+    config.assets.paths << Rails.root.join('angular-application', 'owl-carousel', 'angular', 'jquery', 'encoder-dropdown')
     
 
     config.action_mailer.perform_caching = false

@@ -14,6 +14,12 @@
 
     <body ng-app="ProjectRaw">
 
+        <style>
+            #global-content {
+                padding-top: 77px !important;
+            }
+        </style>
+
         <%= render 'layouts/global_partials/flash'  %>
         <%= render 'layouts/global_partials/loading'  %>
         <%= render 'layouts/global_partials/menu_vertical'  %>
@@ -22,8 +28,6 @@
             <div id="global-content" class="custom-body-fullscreen-fixed custom-blur">
 
                 <%= render 'layouts/global_partials/menu_horizontal'  %>
-
-                <br/><br/>
 
                 <%= yield %>
             </div>

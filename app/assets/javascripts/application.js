@@ -20,6 +20,7 @@
 //= require qrcode.min
 //= require mask-money
 //= require md5
+//= require dropdown
 //
 //= require semantic-ui
 //

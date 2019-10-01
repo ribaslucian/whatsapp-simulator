@@ -43,10 +43,9 @@ Rails.application.routes.draw do
     post '/profile_update', to: 'users#profile_update'
     match '/update_password', to: 'users#update_password', via: [:get, :post]
     
-    resources :messages
     resources :questionnaries
+    resources :messages
     get '/rooms', to: 'rooms#index'
-    
   end
   
   get '*path' => redirect('/dashboard')

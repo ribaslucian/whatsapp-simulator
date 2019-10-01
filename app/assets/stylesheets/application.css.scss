@@ -17,17 +17,20 @@
  *= require toastr/min
  *
  *= require dist/assets/owl.carousel.min
+ *= require dropdown
  *
  * require_tree .
  *= require_self
  */
 
 @import "semantic-ui";
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import url('https://fonts.googleapis.com/css?family=Mali:400,400i,500,500i,600,600i,700,700i&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i&display=swap');
 @import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 
 
 html, body {
@@ -45,7 +48,8 @@ html, body {
     max-width: 100%;
     position: fixed;
     overflow: auto;
-    background: #f4f6fb !important;
+    /*background: #f4f6fb !important;*/
+    background: #f4f4f4 !important;
 }
 
 *:not(i.icon) {
@@ -143,7 +147,8 @@ custom menu horizontal
 */
 
 .custom-menu-global-top {
-    background: #303f9f !important;
+    background: #00438b !important;
+    /*background: #303f9f !important;*/
     /*background: #652f81 !important;*/
 }
 .custom-menu-global-top-title {
@@ -243,7 +248,8 @@ custom shadows
 }
 
 .custom-shadow-input {
-    box-shadow: 0 3px 9px rgba(50,50,9,0), 3px 4px 8px rgba(94,114,228,.1) !important;
+    /*box-shadow: 0 3px 9px rgba(50,50,9,0), 3px 4px 8px rgba(94,114,228,.1) !important;*/
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1) !important;
 }
 .custom-shadow-button{
     box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08) !important;
