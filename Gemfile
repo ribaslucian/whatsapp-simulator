@@ -67,6 +67,7 @@ gem 'owlcarousel-rails', '~> 1.1', '>= 1.1.3.3'
 gem 'flatpickr', '~> 2.3', '>= 2.3.5.0'
 gem 'angularjs-rails', '~> 1.5', '>= 1.5.6'
 gem 'rqrcode'
+gem 'echarts-rails'
 
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'kaminari' # paginate
