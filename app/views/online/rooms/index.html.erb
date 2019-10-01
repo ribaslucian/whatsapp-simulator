@@ -1,6 +1,6 @@
 <style>
     #global-content, .rooms {
-        background: #ccc !important;
+<%#*background: #ccc !important;%>
     }
 
     .rooms {
@@ -9,7 +9,7 @@
         min-width: 768px;
         max-width: 1366px;
         margin: 0px auto;
-        padding: 30px;
+        padding: 15px;
     }
 
     .float-right {
@@ -174,8 +174,36 @@
 
             <div class="ui comments">
 
-                <div class="comment">
+                <style>
+                </style>
 
+                <div class="ui segment basic clearing custom-no-spaces">
+                    <div class="comment float-right" style="background: white !important; border-bottom: 1px solid white !important; width: 50%;">
+                        <i class="material-icons custom-center-absolute-y" style="color: #2185d0">message</i>
+
+                        <div class="content">
+                            <div class="author">932 Respostas</div>
+
+                            <div class="text">
+                                de usuários
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comment float-right" style="background: white !important; border-bottom: 1px solid white !important; width: 50%;">
+                        <i class="material-icons custom-center-absolute-y" style="color: #2185d0">mobile_friendly</i>
+
+                        <div class="content">
+                            <div class="author">32 Dispositivos</div>
+
+                            <div class="text">
+                                Sincronizados
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comment">
                     <i class="material-icons custom-center-absolute-y">public</i>
 
                     <div class="content">
@@ -230,8 +258,8 @@
 
                     <%= render partial: 'online/rooms/partials/menu_room' %>
                 </div>
-                
-                
+
+
 
                 <div class="comment ">
                     <i class="material-icons custom-center-absolute-y" style="color: #730E15">vpn_lock</i>
@@ -241,20 +269,6 @@
 
                         <div class="text">
                             <i class="icon video grey"></i>Vídeo
-                        </div>
-                    </div>
-
-                    <%= render partial: 'online/rooms/partials/menu_room' %>
-                </div>
-
-                <div class="comment">
-                    <i class="material-icons custom-center-absolute-y">public</i>
-
-                    <div class="content">
-                        <div class="author">Pesquisa sobre Consumo de Alimentos</div>
-
-                        <div class="text">
-                            Jessica: <i class="icon image grey"></i>Figura
                         </div>
                     </div>
 
@@ -382,6 +396,6 @@
 
 <script>
   $(document).ready(function () {
-      <%#*$('#modal-statistic').modal('show')%>
+<%#*$('#modal-statistic').modal('show')%>
   });
 </script>

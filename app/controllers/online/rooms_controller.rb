@@ -1,6 +1,6 @@
 class Online::RoomsController < ApplicationController
   
-  layout 'online'
+  layout 'offline'
 
   def index    
   end
