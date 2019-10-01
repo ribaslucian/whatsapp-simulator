@@ -8,8 +8,8 @@
         height: 100%;
         min-width: 768px;
         max-width: 1366px;
-        margin: 0px auto;
-        padding: 15px;
+
+        background: red !important;
     }
 
     .float-right {
@@ -84,6 +84,7 @@
 
     .rooms .ui.grid {
         height: 100%;
+        margin: 0px !important;
     }
 
     .rooms .ui.grid .column:nth-of-type(1) {
@@ -98,7 +99,7 @@
     }
 
     .rooms .ui.grid .column:nth-of-type(2) {
-        border-left: 1px solid #ddd;
+<%#*border-left: 1px solid #ddd;%>
     }
 
     .comment .dropdown {
@@ -166,19 +167,15 @@
 
         <div class="column five wide custom-no-spaces">
 
-            <div class="segment-header">
-                Pesquisas
+            <div class="segment-header" style="background: white;">
+                Pesquisas (5)
 
                 <i class="icon add float-right"></i>
             </div>
 
             <div class="ui comments">
-
-                <style>
-                </style>
-
-                <div class="ui segment basic clearing custom-no-spaces">
-                    <div class="comment float-right" style="background: white !important; border-bottom: 1px solid white !important; width: 50%;">
+                <div class="ui segment basic clearing custom-no-spaces" style="margin: 0px !important; padding: 0px !important;">
+                    <div class="comment float-right" style="background: white !important; border-bottom: 1px dashed #ccc !important; width: 50%;">
                         <i class="material-icons custom-center-absolute-y" style="color: #2185d0">message</i>
 
                         <div class="content">
@@ -190,7 +187,7 @@
                         </div>
                     </div>
 
-                    <div class="comment float-right" style="background: white !important; border-bottom: 1px solid white !important; width: 50%;">
+                    <div class="comment float-right" style="background: white !important; border-bottom: 1px dashed #ccc !important; width: 50%;">
                         <i class="material-icons custom-center-absolute-y" style="color: #2185d0">mobile_friendly</i>
 
                         <div class="content">
@@ -337,52 +334,58 @@
 
             <div class="wpp-footer">
 
-                <div class="ui fluid action input large custom-shadow pos-relative">
-                    <div class="dropdown custom-center-absolute-xy large" style="left: 30px;">
-                        <div class="dropdown-title">
-                            <i class="icon bars"></i>
+                <div class="custom-center" style="width: 75%;">
+                    <div class="ui fluid action input large custom-shadow pos-relative">
+                        <div class="dropdown custom-center-absolute-xy large" style="left: 30px;">
+                            <div class="dropdown-title">
+                                <i class="icon bars"></i>
+                            </div>
+
+                            <div class="top center horizontal menu" style="display: none !important;">
+                                <a href="#" class="item icon bold">
+                                    <i class="material-icons">question_answer</i>
+                                    <b>Auto Mensagens</b>
+                                    <small>
+                                        &nbsp;
+                                        <b>Chatbot</b>
+                                    </small>
+                                </a>
+
+                                <a href="#" class="item icon bold">
+                                    <i class="material-icons">assignment</i>
+                                    <b>Questionário</b>
+                                </a>
+
+                                <a href="#" class="item icon bold">
+                                    <i class="material-icons">playlist_add_check</i>
+                                    <b>Enquete</b>
+                                </a>
+
+                                <a href="#" class="item icon bold">
+                                    <i class="material-icons">mic</i>
+                                    <b>Áudio</b>
+                                </a>
+
+                                <a href="#" class="item icon bold">
+                                    <i class="material-icons">videocam</i>
+                                    <b>Vídeo</b>
+                                </a>
+
+                                <a href="#" class="item icon bold">
+                                    <i class="material-icons">image</i>
+                                    <b>Figura</b>
+                                </a>
+                            </div>
                         </div>
 
-                        <div class="top center horizontal menu" style="display: none !important;">
-                            <a href="#" class="item icon bold">
-                                <i class="material-icons">question_answer</i>
-                                <b>Auto Mensagens</b>
-                            </a>
+                        <input type="text" placeholder="Digite uma mensagem... <Broadcast para 32 usuários>"
+                               style="padding-left: 55px; border: 0px !important;">
 
-                            <a href="#" class="item icon bold">
-                                <i class="material-icons">assignment</i>
-                                <b>Questionário</b>
-                            </a>
-
-                            <a href="#" class="item icon bold">
-                                <i class="material-icons">playlist_add_check</i>
-                                <b>Enquete</b>
-                            </a>
-
-                            <a href="#" class="item icon bold">
-                                <i class="material-icons">mic</i>
-                                <b>Áudio</b>
-                            </a>
-
-                            <a href="#" class="item icon bold">
-                                <i class="material-icons">videocam</i>
-                                <b>Vídeo</b>
-                            </a>
-
-                            <a href="#" class="item icon bold">
-                                <i class="material-icons">image</i>
-                                <b>Figura</b>
-                            </a>
+                        <div
+                            class="ui button facebook icon  custom-shadow" 
+                            style="border-radius: 0px 5px 5px 0px; padding: 20px 20px 20px 18px;">
+                            <i class="icon paper plane outline"></i>
                         </div>
-                    </div>
-
-                    <input type="text" placeholder="Digite uma mensagem <Broadcast>..."
-                           style="padding-left: 55px; border: 0px !important;">
-
-                    <div
-                        class="ui button facebook icon  custom-shadow" 
-                        style="border-radius: 0px 5px 5px 0px; padding: 20px 20px 20px 18px;">
-                        <i class="icon paper plane outline"></i>
                     </div>
                 </div>
 
