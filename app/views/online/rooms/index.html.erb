@@ -93,7 +93,7 @@
 
     .rooms .ui.grid .column:nth-of-type(2) {
         background: #E2DBD3;
-        background-image: url('wpp-bg.png');
+        <%#*background-image: url('wpp-bg.png');%>
         background-repeat: repeat;
         background-size: 50%;
     }
@@ -168,7 +168,7 @@
         <div class="column five wide custom-no-spaces">
 
             <div class="segment-header" style="background: white;">
-                Pesquisas (5)
+                Pesquisas (6)
 
                 <i class="icon add float-right"></i>
             </div>
@@ -262,7 +262,23 @@
                     <i class="material-icons custom-center-absolute-y" style="color: #730E15">vpn_lock</i>
 
                     <div class="content">
-                        <div class="author">Pesquisa sobre Agressão a Animais</div>
+                        <div class="author">Descriminalização das Drogas</div>
+
+                        <div class="text">
+                            <i class="icon video grey"></i>Vídeo
+                        </div>
+                    </div>
+
+                    <%= render partial: 'online/rooms/partials/menu_room' %>
+                </div>
+
+
+
+                <div class="comment ">
+                    <i class="material-icons custom-center-absolute-y">public</i>
+
+                    <div class="content">
+                        <div class="author">Pesquisa sobre o Porte de Armas</div>
 
                         <div class="text">
                             <i class="icon video grey"></i>Vídeo
@@ -334,7 +350,7 @@
 
             <div class="wpp-footer">
 
-                <div class="custom-center" style="width: 75%;">
+                <div class="custom-center" style="width: 100%;">
                     <div class="ui fluid action input large custom-shadow pos-relative">
                         <div class="dropdown custom-center-absolute-xy large" style="left: 30px;">
                             <div class="dropdown-title">
@@ -378,8 +394,9 @@
                             </div>
                         </div>
 
-                        <input type="text" placeholder="Digite uma mensagem... <Broadcast para 32 usuários>"
-                               style="padding-left: 55px; border: 0px !important;">
+                        <input type="text"
+                               placeholder="Digite uma mensagem... <Broadcast para 32 usuários>"
+                               style="padding-left: 55px; border: 0px !important; font-weight: bold;">
 
                         <div
                             class="ui button facebook icon  custom-shadow" 
