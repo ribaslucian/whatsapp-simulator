@@ -56,7 +56,6 @@ $(document).ready(function () {
     // Escoder todos os dropdowns abertos ao clicar em um
     // elemento que não seja ou não esteja dentro de um dropdown
     $('.dropdown').clickOut(function (e) {
-        console.log('oi');
         $('.dropdown .menu').attr('style', 'display: none !important;');
     });
     
