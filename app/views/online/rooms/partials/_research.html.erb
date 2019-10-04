@@ -1,0 +1,25 @@
+<div class="research">
+
+    <% if public %>
+      <i class="material-icons research-icon">public</i>
+    <% else %>
+      <i class="material-icons research-icon" style="color: #c00">vpn_lock</i>
+    <% end %>
+
+    <div class="content">
+        <div class="title">
+            <%= research %>
+        </div>
+
+        <div class="text">
+            <%= message.html_safe %>
+        </div>
+    </div>
+
+<%#*<div class="menu-column">%>
+<%#*<i class="icon bars"></i>%>
+<%#*<i class="material-icons">menu</i>%>
+<%#*</div>%>
+
+    <%= render partial: 'online/rooms/partials/menu_research' %>
+</div>

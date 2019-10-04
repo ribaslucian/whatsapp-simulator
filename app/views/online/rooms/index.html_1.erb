@@ -1,0 +1,424 @@
+<style>
+    #global-content, .rooms {
+        background: #333 !important;
+    }
+
+    .rooms {
+        font-family: "Roboto" !important;
+
+        height: 100%;
+        min-width: 768px;
+        max-width: 1366px;
+
+        background: red !important;
+    }
+
+    .float-right {
+        float: right;
+    }
+
+    .pos-relative {
+        position: relative;
+    }
+
+    .pos-absolute {
+        position: absolute;
+    }
+
+    .segment-header {
+        background: #f4f4f4;
+        padding: 30px;
+        font-weight: bold;
+        font-size: 175%;
+        color: #333;
+<%#*border-left: 1px solid #ddd;%>
+<%#*border-bottom: 1px solid #ddd;%>
+
+        /* font-family: "Poppins" !important; */
+        /*font-family: "PT Sans" !important;*/
+        font-family: "Source Sans Pro" !important;
+
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 20px 0px;
+    }
+
+    .comment .content .text {
+        font-size: 12px !important;
+        color: #444 !important;
+    }
+
+
+    .comments {
+        margin: 0px 0 0 0 !important;
+        background: white;
+    }
+
+    .comment {
+        border-bottom: 1px solid #ddd !important;
+        padding-bottom: 10px !important;
+        margin: 0px !important;
+        padding: 15px !important;
+        padding-left: 70px !important;
+    }
+    .comment:hover {
+        background: #f9f9f9 !important;
+    }
+
+
+    .comment.active {
+        background: #eee !important;
+        border-bottom: 1px solid #eee !important;
+        border-top: 1px solid #eee !important;
+        margin-top: -1px !important;
+    }
+
+    .comment .text {
+        color: grey !important;
+        font-size: 12px !important;
+        margin-top: 5px !important;
+    }
+
+    .comment .content {
+        position: relative;
+        bottom: -5px;
+    }
+    .comment .content .text {
+        font-size: 12px !important;
+        color: grey !important;
+        letter-spacing: 0.5px !important;
+    }
+
+    .custom-no-spaces {
+        margin: 0px !important;
+        padding: 0px !important;
+    }
+
+    .rooms .ui.grid {
+        height: 100%;
+        margin: 0px !important;
+    }
+
+    .rooms .ui.grid .column:nth-of-type(1) {
+        background: white !important;
+        z-index: 9;
+<%#*box-shadow: 13px 3px 25px -15px rgba(97,97,97,0.7);%>
+    }
+
+    .rooms .ui.grid .column:nth-of-type(2) {
+        /*box-shadow: inset 50px -10px 25px -40px rgba(229,232,240, 1);*/
+        box-shadow: inset rgba(0, 0, 0, 0.1) 0px 1px 20px 0px;
+
+<%#*background: #f2f4f8;%>
+<%#*background: #f2f4f8;%>
+        background: #E2DBD3;
+        background-image: url('wpp-bg.png');
+        background-repeat: repeat;
+        background-size: 50%;
+    }
+
+    .rooms .ui.grid .column:nth-of-type(2) {
+<%#*border-left: 1px solid #ddd;%>
+    }
+
+    .comment .dropdown {
+        right: 25px; top: 30px;
+    }
+
+
+    .custom-segment-top {
+        background: #f0f0f0;
+        font-size: 150%;
+        padding: 20px;
+    }
+    .custom-message-container {
+        display: table;
+        background: white;
+        padding: 12px 14px;
+        border-radius: 7px;
+        margin: 5px 0;
+        font-size: 16px;
+        /*font-family: "Roboto" !important;*/
+    }
+    .custom-message-container.custom-float-right {
+        background: #D8F8C7 !important;
+    }
+    .custom-float-right {
+        float: right;
+        margin-right: 10px;
+    }
+    .custom-float-left {
+        float: left;
+    }
+    .custom-chat-checkbox {
+        margin: 14px 15px;
+        margin-right: 0px;
+    }
+    input[type=radio] {
+        width: 20px;
+        height: 20px;
+    }
+    .ui.clearing.segment.basic.custom-no-spaces {
+        padding: 0px 20px !important;
+    }
+    .custom-chat-messsages {
+        padding: 20px;
+    }
+    .custom-chat-messsages * {
+        color: #444;
+    }
+
+
+    .comment .material-icons.custom-center-absolute-y {
+        font-size: 34px; left: 20px; color: #206f90;
+    }
+
+    .wpp-footer {
+        position: absolute;
+        width: 100%;
+        padding: 20px;
+        left: 0px;
+        bottom: 0px;
+    }
+</style>
+
+
+
+<div class="rooms">
+    <div class="ui grid">
+
+        <div class="column five wide custom-no-spaces">
+
+            <div class="segment-header" style="background: white;">
+                Pesquisas (5)
+
+                <i class="icon add float-right grey pos-relative" style="right: -10px;"></i>
+            </div>
+
+            <div class="ui comments">
+                <div class="ui segment basic clearing custom-no-spaces" style="margin: 0px !important; padding: 0px !important;">
+                    <div class="comment float-right" style="background: white !important; border-bottom: 1px dashed #ccc !important; width: 50%;">
+                        <i class="material-icons custom-center-absolute-y" style="color: #2185d0">message</i>
+
+                        <div class="content">
+                            <div class="author">932 Respostas</div>
+
+                            <div class="text">
+                                de usuários
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comment float-right" style="background: white !important; border-bottom: 1px dashed #ccc !important; width: 50%;">
+                        <i class="material-icons custom-center-absolute-y" style="color: #2185d0">mobile_friendly</i>
+
+                        <div class="content">
+                            <div class="author">32 Dispositivos</div>
+
+                            <div class="text">
+                                Sincronizados
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comment">
+                    <i class="material-icons custom-center-absolute-y">public</i>
+
+                    <div class="content">
+                        <div class="author">Pesquisa Feminismo</div>
+
+                        <div class="text">
+                            <i class="icon edit grey"></i>Questionário
+                        </div>
+                    </div>
+
+                    <%= render partial: 'online/rooms/partials/menu_room' %>
+                </div>
+
+                <div class="comment active">
+                    <i class="material-icons custom-center-absolute-y" style="color: #730E15">vpn_lock</i>
+
+                    <div class="content">
+                        <div class="author">Pesquisa Política</div>
+
+                        <div class="text">
+                            <i class="icon video grey"></i>Vídeo
+                        </div>
+                    </div>
+
+                    <%= render partial: 'online/rooms/partials/menu_room' %>
+                </div>
+
+                <div class="comment">
+                    <i class="material-icons custom-center-absolute-y">public</i>
+
+                    <div class="content">
+                        <div class="author">Pesquisa sobre Agressão</div>
+
+                        <div class="text">
+                            Marcos: Uou! Isso é demais cara...
+                        </div>
+                    </div>
+
+                    <%= render partial: 'online/rooms/partials/menu_room' %>
+                </div>
+
+                <div class="comment">
+                    <i class="material-icons custom-center-absolute-y">public</i>
+
+                    <div class="content">
+                        <div class="author">Pesquisa Comunidade LGBT</div>
+
+                        <div class="text">
+                            Bruna Camargo: <i class="icon image grey"></i>Figura
+                        </div>
+                    </div>
+
+                    <%= render partial: 'online/rooms/partials/menu_room' %>
+                </div>
+
+
+
+                <div class="comment ">
+                    <i class="material-icons custom-center-absolute-y" style="color: #730E15">vpn_lock</i>
+
+                    <div class="content">
+                        <div class="author">Pesquisa sobre Agressão a Animais</div>
+
+                        <div class="text">
+                            <i class="icon video grey"></i>Vídeo
+                        </div>
+                    </div>
+
+                    <%= render partial: 'online/rooms/partials/menu_room' %>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="column eleven wide custom-no-spaces">
+
+            <div class="segment-header">
+                Pesquisa Política
+            </div>
+
+            <style>
+            </style>
+
+            <div class="custom-chat-messsages" style="margin-top: 20px;">
+                <div class="ui clearing segment basic custom-no-spaces">
+                    <div class="custom-message-container custom-float-right custom-shadow-input">
+                        Olá Joe!
+
+                        <%= render partial: 'online/rooms/partials/menu_message' %>
+                    </div>
+                </div>
+
+                <div class="ui clearing segment basic custom-no-spaces">
+                    <div class="custom-message-container custom-float-right custom-shadow-input" style="border: 2px dashed grey;">
+                        <b>Título do Questionário (4)</b>
+                        &nbsp;
+
+                        <b style="color: teal; font-size: 90%;">
+                            <i class="icon time" style="color: teal; position: relative; bottom: -1px;"></i>
+                            Pendente (2)
+                        </b>
+
+                        <%= render partial: 'online/rooms/partials/menu_message' %>
+                    </div>
+                </div>
+
+                <div class="ui clearing segment basic custom-no-spaces">
+                    <div class="custom-message-container custom-float-right custom-shadow-input">
+                        Você pode responder essa questionário por gentileza ?
+
+                        <%= render partial: 'online/rooms/partials/menu_message' %>
+                    </div>
+                </div>
+
+
+                <div class="ui clearing segment basic custom-no-spaces">
+                    <div class="custom-message-container custom-float-left custom-shadow-input">
+                        Oi
+                    </div>
+                </div>
+
+                <div class="ui clearing segment basic custom-no-spaces">
+
+                    <div class="custom-message-container custom-float-left custom-shadow-input">
+                        Ual! Eu não sabia disso
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="wpp-footer">
+
+                <div class="custom-center" style="width: 75%;">
+                    <div class="ui fluid action input large custom-shadow pos-relative">
+                        <div class="dropdown custom-center-absolute-xy large" style="left: 30px;">
+                            <div class="dropdown-title">
+                                <i class="icon bars"></i>
+                            </div>
+
+                            <div class="top center horizontal menu" style="display: none !important;">
+                                <a href="#" class="item icon bold">
+                                    <i class="material-icons">question_answer</i>
+                                    <b>Auto Mensagens</b>
+                                    <small>
+                                        &nbsp;
+                                        <b>Chatbot</b>
+                                    </small>
+                                </a>
+
+                                <a href="#" class="item icon bold">
+                                    <i class="material-icons">assignment</i>
+                                    <b>Questionário</b>
+                                </a>
+
+                                <a href="#" class="item icon bold">
+                                    <i class="material-icons">playlist_add_check</i>
+                                    <b>Enquete</b>
+                                </a>
+
+                                <a href="#" class="item icon bold">
+                                    <i class="material-icons">mic</i>
+                                    <b>Áudio</b>
+                                </a>
+
+                                <a href="#" class="item icon bold">
+                                    <i class="material-icons">videocam</i>
+                                    <b>Vídeo</b>
+                                </a>
+
+                                <a href="#" class="item icon bold">
+                                    <i class="material-icons">image</i>
+                                    <b>Figura</b>
+                                </a>
+                            </div>
+                        </div>
+
+                        <input type="text" placeholder="Digite uma mensagem... <Broadcast para 32 usuários>"
+                               style="padding-left: 55px; border: 0px !important;">
+
+                        <div
+                            class="ui button facebook icon  custom-shadow" 
+                            style="border-radius: 0px 5px 5px 0px; padding: 25px;">
+                            <i class="icon paper plane outline"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<%= render partial: 'online/rooms/partials/modal_statistic' %>
+
+<script>
+  $(document).ready(function () {
+<%#*$('#modal-statistic').modal('show')%>
+  });
+</script>
