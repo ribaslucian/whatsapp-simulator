@@ -16,17 +16,25 @@
     }
 
     .column-1 {
-        background: white;       
+        background: white;
+    }
+
+    .column-1, .column-2 {
         max-height: 100%;
         overflow: auto;
+    }
+
+    .column-2 {
+        padding-bottom: 120px !important;
     }
 
     .header-column {
         padding: 40px 35px;
         position: relative;
         font-family: "Roboto" !important;
-        
-        background: #2b579a;
+
+<%#*background: #2b579a;%>
+        background: #333;
         color: white;
     }
     .header-title {
@@ -72,7 +80,7 @@
     .research .content {
         margin-top: 3px;
     }
-    
+
     .menu-header, .menu-research {
         position: absolute !important;
         top: 50% !important;
@@ -90,24 +98,34 @@
     .menu-research {
         right: 30px;
     }
-    
-    
-    
-    
+    .research:hover {
+        background: #f9f9f9 !important;
+        cursor: pointer;
+    }
+    .research.active {
+        background: #eee !important;
+        border-bottom: 1px solid #eee !important;
+        border-top: 1px solid #eee !important;
+        margin-top: -1px !important;
+    }
+
+
     .container-input-message {
         background: none;
-        position: absolute;
+        position: fixed;
         bottom: 0px;
-        left: 0px;
-        width: 100%;
+        right: 0px;
+        width: 68.5%;
         padding: 25px 40px;
+
+        background-image: url('wpp-bg.png');
     }
 
     .input-message {
         padding-left: 65px !important;
         border: 0px !important;
     }
-    
+
 
     .input-message::placeholder {
     }
@@ -115,26 +133,26 @@
     .button-send {
         padding: 25px !important;
     }
-    
+
     .custom-no-spaces {
         margin: 0px !important;
         padding: 0px !important;
     }
-    
+
     .column.eleven .header-title {
         font-family: "PT Sans" !important;
         font-size: 16px;
         padding: 15px 25px;
         border-radius: 4px;
     }
-    
+
     .column.eleven .header-column {
         background: none;
     }
-    
-    
-    
-    
+
+
+
+
     .message-container-1, .message-container-2 {
         margin: 0px !important;
         border: 0px !important;
@@ -154,6 +172,12 @@
     .message-autor {
         font-weight: bold;
         margin-bottom: 5px;
+        cursor: pointer;
+        border-bottom: 1px solid white;
+    }
+
+    .message-autor:hover {
+        border-bottom: 1px solid #ddd;
     }
 </style>
 
@@ -176,39 +200,59 @@
         <%= render partial: 'online/rooms/partials/research', locals: {
           research: 'Pesquisa Feminismo',
           message: '<i class="icon edit grey"></i> Questionário'.html_safe,
-          public: false
+          public: false,
+          news: 10,
+          up: true
           } %>
 
 
         <%= render partial: 'online/rooms/partials/research', locals: {
           research: 'Pesquisa Política',
           message: '<i class="icon video grey"></i> Vídeo',
-          public: true
+          public: true,
+          active: true,
+          up: true
           } %>
 
 
         <%= render partial: 'online/rooms/partials/research', locals: {
           research: 'Pesquisa sobre Agressão',
           message: 'Marcos: Mas o que é isso cara...',
-          public: false
+          public: false,
+          down: true
           } %>
 
 
         <%= render partial: 'online/rooms/partials/research', locals: {
           research: 'Pesquisa Comunidade LGBT',
           message: 'Bruna Camargo: <i class="icon image grey"></i>Figura',
-          public: true
+          public: true,
+          news: 145,
+          up: true
           } %>
 
         <%= render partial: 'online/rooms/partials/research', locals: {
           research: 'Pesquisa sobre Agressão a Animais',
           message: '<i class="icon video grey"></i> Vídeo',
-          public: false
+          public: false,
+          neutro: true
           } %>
+
+<%#= render partial: 'online/rooms/partials/research', locals: {
+research: 'Pesquisa 01',
+message: 'Usuário 01: Último texto na conversa',
+public: true
+} %>
+
+<%#= render partial: 'online/rooms/partials/research', locals: {
+research: 'Pesquisa 02',
+message: 'Usuário 02: Último texto na conversa',
+public: true
+} %>
     </div>
 
 
-    <div class="column eleven wide" style="padding: 0px !important;">
+    <div class="column column-2 eleven wide">
 
         <div class="header-column">
             <div class="ui segment custom-center basic inverted grey header-title">
@@ -217,7 +261,7 @@
                 <b>Pesquisa Comunidade LGBT</b>
             </div>
         </div>
-        
+
 
         <div class="messages-container" style="padding: 0 25px !important;">
             <div class="ui clearing segment basic message-container-1">
@@ -225,7 +269,7 @@
                     <div class="message-message">
                         Olá!
                     </div>
-                    
+
                     <%= render partial: 'online/rooms/partials/menu_message' %>
                 </div>
             </div>
@@ -238,24 +282,30 @@
 
                         <%= render partial: 'online/rooms/partials/menu_message' %>
                         <%= render partial: 'online/rooms/partials/message_questionnarie' %>
-                        
                     </div>
                 </div>
             </div>
 
             <br/>
 
+
             <div class="ui clearing segment basic message-container-1">
                 <div class="ui left floated segment message-container-2">
-                    <div class="message-autor">
-                        Marcos
+                    <div class="message-autor" style="color: blue;">
+                        Luan Henrique
                     </div>
 
                     <div class="message-message">
-                        <img style="width: 150px;" class="ui image" src="http://www.willtirando.com.br/wp-content/uploads/2019/07/EU-VOU-MAT%C3%81.png" />
+                        Oi, sobre o que é esse questionário ?
                     </div>
-                    
+
                     <%= render partial: 'online/rooms/partials/menu_message' %>
+
+                    <div class="ui segment basic custom-no-spaces" style="margin-top: 6px !important; margin-bottom: -5px !important;">
+                        <b style="color: grey; font-size: 12px;">
+                            <i class="icon time grey"></i>2
+                        </b>
+                    </div>
                 </div>
             </div>
 
@@ -269,7 +319,21 @@
                     <div class="message-message">
                         Respondi tudo, achei interessante a última questão.
                     </div>
-                    
+
+                    <%= render partial: 'online/rooms/partials/menu_message' %>
+                </div>
+            </div>
+
+            <div class="ui clearing segment basic message-container-1">
+                <div class="ui left floated segment message-container-2">
+                    <div class="message-autor" style="color: orange;">
+                        Marcos
+                    </div>
+
+                    <div class="message-message">
+                        <img style="width: 150px;" class="ui image" src="http://www.willtirando.com.br/wp-content/uploads/2019/07/EU-VOU-MAT%C3%81.png" />
+                    </div>
+
                     <%= render partial: 'online/rooms/partials/menu_message' %>
                 </div>
             </div>
@@ -279,9 +343,19 @@
             <div class="ui clearing segment basic message-container-1">
                 <div class="ui right floated segment message-container-2 message-right">
                     <div class="message-message">
+                        Esse questionário irá explicar uma questão importante na pesquisa.
+                    </div>
+
+                    <%= render partial: 'online/rooms/partials/menu_message' %>
+                </div>
+            </div>
+
+            <div class="ui clearing segment basic message-container-1">
+                <div class="ui right floated segment message-container-2 message-right">
+                    <div class="message-message">
                         Me diga se tiver dúvida em alguma questão <i class="icon smile outline orange"></i>
                     </div>
-                    
+
                     <%= render partial: 'online/rooms/partials/menu_message' %>
                 </div>
             </div>
@@ -314,4 +388,12 @@
     </div>
 </div>
 
-<%= render partial: 'online/rooms/partials/modal_statistic' %>
+<%= render partial: 'online/rooms/partials/modal_research' %>
+<%= render partial: 'online/rooms/partials/modal_message' %>
+
+<script>
+  $(document).ready(function () {
+      // $('#modal-message').modal('show');
+      $('#modal-research').modal('show');
+  })
+</script>

@@ -21,7 +21,7 @@
 //= require mask-money
 //= require md5
 //= require dropdown
-//= require echarts
+// require echarts-en
 //
 //= require semantic-ui
 //

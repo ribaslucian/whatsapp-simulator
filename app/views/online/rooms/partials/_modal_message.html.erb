@@ -1,72 +1,109 @@
-<div id="modal-statistic" class="ui modal">
+<style>
+    .no-hover {
+        border: 0px !important;
+        font-family: 'Source Sans Pro' !important;
+    }
+    
+    .no-hover:hover {
+        background: white !important;
+    }
+</style>
+
+<div id="modal-message" class="ui modal">
     <i class="close icon"></i>
 
     <div class="header">
-        Dados Interativos
+        Dados da Mensagem
     </div>
 
     <div class="content">
 
-        <div class="custom-center">
-            <div class="ui label big">
-                1368 Respostas
+        <div class="ui segment basic clearing" style="margin: 0px !important; padding: 0px !important; font-size: 130%;">
+            <div class="research no-hover" style="width: 33%; float: left; margin: 0px;">
+                <i class="icon hand point up outline research-icon large"></i>
+
+                <div class="content">
+                    <div class="title">
+                        1
+                    </div>
+
+                    <div class="text">
+                        Clique(s)
+                    </div>
+                </div>
             </div>
 
-            <div class="ui label big">
-                2 Questionários
+            <div class="research no-hover" style="width: 33%; float: left;  margin: 0px;">
+                <i class="material-icons research-icon">share</i>
+
+                <div class="content">
+                    <div class="title">
+                        2
+                    </div>
+
+                    <div class="text">
+                        Compartilhamento(s)
+                    </div>
+                </div>
             </div>
 
-            <div class="ui label big">
-                1 Enquete
-            </div>
-        </div>
-        
-        <br/>
+            <div class="research no-hover" style="width: 33%; float: left;  margin: 0px;">
+                <i class="material-icons research-icon blue">add</i>
 
-        <div class="custom-center">
-            <div class="ui label">
-                Oi
-                <div class="detail">321</div>
-            </div>
-            
-            <div class="ui label">
-                Ok
-                <div class="detail">256</div>
-            </div>
-            
-            <div class="ui label">
-                Nossa
-                <div class="detail">165</div>
-            </div>
-            
-            <div class="ui label">
-                Deus
-                <div class="detail">95</div>
-            </div>
-            
-            <div class="ui label">
-                fica
-                <div class="detail">89</div>
-            </div>
-            
-            <div class="ui label">
-                Mas
-                <div class="detail">14</div>
+                <div class="content">
+                    <div class="title">
+                        Polaridade
+                    </div>
+
+                    <div class="text">
+                        Mensagem positiva
+                    </div>
+                </div>
             </div>
         </div>
 
-        <br/>
-        <div class="ui divider fitted"></div>
-        <br/>
+        <div class="ui segment basic clearing" style="margin: 0px !important; padding: 0px !important; font-size: 120%;">
+            <div class="research no-hover" style="width: 33%; float: left; margin: 0px;">
+                <i class="icon share research-icon large blue"></i>
 
+                <div class="content">
+                    <div class="title">
+                        Próxima Ação
+                    </div>
 
-        <div class="custom-center">
-            <div id="chart-messages" style="width: 700px; height: 400px;"></div>
-        </div>
+                    <div class="text">
+                        Usuário printou a tela
+                    </div>
+                </div>
+            </div>
 
+            <div class="research no-hover" style="width: 33%; float: left;  margin: 0px;">
+                <i class="material-icons research-icon blue">message</i>
 
-        <div class="custom-center">
-            <div id="chart-polarity" style="width: 700px; height: 400px;"></div>
+                <div class="content">
+                    <div class="title">
+                        00:00:04
+                    </div>
+
+                    <div class="text">
+                        Tempo no primeiro foco
+                    </div>
+                </div>
+            </div>
+
+            <div class="research no-hover" style="width: 33%; float: left;  margin: 0px;">
+                <i class="material-icons research-icon blue">message</i>
+
+                <div class="content">
+                    <div class="title">
+                        Localização
+                    </div>
+
+                    <div class="text">
+                        Oxford OX1 2JD, Reino Unido
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

@@ -1,25 +1,40 @@
-<div class="research">
+<div class="research <%= (defined? active) ? 'active' : '' %>">
 
     <% if public %>
-      <i class="material-icons research-icon">public</i>
+      <i class="material-icons research-icon" style="color: #18536c">public</i>
     <% else %>
-      <i class="material-icons research-icon" style="color: #c00">vpn_lock</i>
+      <i class="material-icons research-icon" style="color: #B43832">vpn_lock</i>
     <% end %>
 
     <div class="content">
         <div class="title">
             <%= research %>
+            &nbsp;
+
+            <% if defined? news %>
+              <span style="font-size: 11px; color: #18536c">
+                  <i class="icon asterisk" style="margin-right: 1px;"></i><%=  news %>
+              </span>
+            <% end %>
+
+            <% if defined? up %>
+              <i class="icon arrow up small" style="color: green;"></i>
+            <% end %>
+
+            <% if defined? down %>
+              <i class="icon arrow down red small"></i>
+            <% end %>
+
+            <% if defined? neutro %>
+              <i class="icon minus grey small"></i>
+            <% end %>
+
         </div>
 
         <div class="text">
             <%= message.html_safe %>
         </div>
     </div>
-
-<%#*<div class="menu-column">%>
-<%#*<i class="icon bars"></i>%>
-<%#*<i class="material-icons">menu</i>%>
-<%#*</div>%>
 
     <%= render partial: 'online/rooms/partials/menu_research' %>
 </div>
